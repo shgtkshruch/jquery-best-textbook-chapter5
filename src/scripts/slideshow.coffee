@@ -37,6 +37,25 @@ goToSlide = (index) ->
   # 現在のスライドのインデックスを上書き
   currentIndex = index
 
+  updateNav()
+
+# スライドの状態に応じてナビゲーションを更新する
+updateNav = ->
+  $navPrev = $nav.find '.prev'
+  $navNext = $nav.find '.next'
+
+  # もし最初のスライドならPrevナビゲーションを無効に
+  if currentIndex is 0
+    $navPrev.addClass 'disabled'
+  else
+    $navPrev.removeClass 'disabled'
+
+  # もし最後のスライドならNextナビゲーションを無効に
+  if currentIndex is slideCount - 1
+    $navNext.addClass 'disabled'
+  else
+    $navNext.removeClass 'disabled'
+
 # スライドのタイマーを開始する
 startTimer = ->
   timer = setInterval ->
@@ -45,6 +64,17 @@ startTimer = ->
     nextIndex = (currentIndex + 1) % slideCount
     goToSlide nextIndex
   , intarval
+
+###
+# イベントの登録
+###
+
+$nav.on 'click', 'a', (event) ->
+  event.preventDefault()
+  if $(@).hasClass 'prev'
+    goToSlide currentIndex - 1
+  else
+    goToSlide currentIndex + 1
 
 ###
 # スライドショーの開始
