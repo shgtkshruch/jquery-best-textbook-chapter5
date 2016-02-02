@@ -1,0 +1,11 @@
+.slideshow {
+  position: relative;
+  min-width: 960px;
+  height: 465px;
+  img {
+    display: none;
+    position: absolute;
+    left: 50%;
+    margin-left: -800px;
+  }
+}
