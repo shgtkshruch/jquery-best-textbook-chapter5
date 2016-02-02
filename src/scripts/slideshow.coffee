@@ -24,3 +24,34 @@ $slides.each (i) ->
 
 $inditator.html indicatorHTML
 
+###
+# 関数の定義
+###
+
+# 任意のスライドを表示する
+goToSlide = (index) ->
+  $slideGroup.animate
+    left: -100 * index + '%'
+  , duration, easing
+
+  # 現在のスライドのインデックスを上書き
+  currentIndex = index
+
+# スライドのタイマーを開始する
+startTimer = ->
+  timer = setInterval ->
+    # 現在のスライドのインデックスに応じで次に表示するスライドの決定
+    # もし最後のスライドなら最初のスライドへ
+    nextIndex = (currentIndex + 1) % slideCount
+    goToSlide nextIndex
+  , intarval
+
+###
+# スライドショーの開始
+###
+
+# 最初のスライドを表示
+goToSlide currentIndex
+
+# タイマーをスタート
+startTimer()
