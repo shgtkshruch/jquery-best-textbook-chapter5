@@ -1,5 +1,12 @@
 header
   .slideshow
-    - for (var i = 0; i < 3; i++)
-      a.slide(href="#")
-        img(src="images/slide-#{i+1}.jpg" alt="" width="1600" height="465")
+    .slideshow-slides
+      - for (var i = 0; i < 4; i++)
+        a.slide(href="#")
+          img(src="images/slide-#{i+1}.jpg" alt="" width="1600" height="465")
+
+    .slideshow-nav
+      a.prev(href="#") Prev
+      a.next(href="#") Next
+
+    .slideshow-indicator
