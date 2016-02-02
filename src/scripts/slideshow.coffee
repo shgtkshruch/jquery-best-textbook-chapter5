@@ -71,6 +71,10 @@ startTimer = ->
     goToSlide nextIndex
   , intarval
 
+# スライドのタイマーを止める
+stopTimer = ->
+  clearInterval timer
+
 ###
 # イベントの登録
 ###
@@ -88,6 +92,11 @@ $indicator.on 'click', 'a', (event) ->
   event.preventDefault()
   if !$(@).hasClass 'acvive'
     goToSlide $(@).index()
+
+# マウスが乗ったらタイマーを停止、はずれたら開始
+$container.on
+  mouseenter: stopTimer
+  mouseleave: startTimer
 
 ###
 # スライドショーの開始
