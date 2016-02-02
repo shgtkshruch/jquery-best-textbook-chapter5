@@ -1,25 +1,26 @@
-$slides = $('.slideshow').find 'img'
+$container = $ '.slideshow'
+$slideGroup = $container.find '.slideshow-slides'
+$slides = $slideGroup.find '.slide'
+$nav = $container.find '.slideshow-nav'
+$inditator = $container.find '.slideshow-indicator'
+
 slideCount = $slides.length
+indicatorHTML = ''
 currentIndex = 0
+duration = 500
+easing = 'easeInOutExpo'
+intarval = 7500
+timer = ''
 
-# 1番目のスライドをフェードインで表示
-$slides
-  .eq currentIndex
-  .fadeIn()
+###
+# HTML要素の配置、生成、挿入
+###
 
-showNextSlide = ->
+# 各スライドの位置を決定し、
+# 対応するインジケーターのアンカーを生成
+$slides.each (i) ->
+  $(@).css 'left', 100 * i + '%'
+  indicatorHTML += '<a href="#">' + (i + 1) + '</a>'
 
-  # 次に表示するスライドのインデックス
-  # (もし最初のスライドなら最初に戻る)
-  nextIndex = (currentIndex + 1) % slideCount
+$inditator.html indicatorHTML
 
-  $slides
-    .eq currentIndex
-    .fadeOut()
-    .end()
-    .eq nextIndex
-    .fadeIn()
-
-  currentIndex = nextIndex
-
-setInterval showNextSlide, 7500
