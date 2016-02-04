@@ -11,7 +11,8 @@ $headerCloneContainer
 # HTMLの上辺からヘッダーの底辺までの距離
 threshold = $header.offset().top + $header.outerHeight()
 
-$window.on 'scroll', ->
+# スクロール時に処理を実行するが、回数を１秒間に１５回までに制限
+$window.on 'scroll', $.throttle 1000 / 15, ->
   if $window.scrollTop() > threshold
     $headerCloneContainer.addClass 'visible'
   else
