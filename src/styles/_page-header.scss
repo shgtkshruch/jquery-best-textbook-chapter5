@@ -1,12 +1,7 @@
 .page-header {
-  position: absolute;
   width: 100%;
   min-width: 960px;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
-  &.sticky {
-    position: fixed;
-    top: 0;
-  }
 }
 
 .site-logo {
@@ -31,3 +26,39 @@
   }
 }
 
+.page-header-clone {
+  background-color: #000;
+  opacity: 0.9;
+  position: fixed;
+  top: -35px;
+  width: 100%;
+  z-index: 30;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
+  transition: top 0.25s;
+  &.visible {
+    top: 0;
+  }
+  &:hover {
+    opacity: 1;
+  }
+  .site-logo {
+    margin-left: 8px;
+    a {
+      display: block;
+      width: 143px;
+      height: 32px;
+      overflow: hidden;
+      &::before {
+        content: url(../images/logo-small.png);
+        display: inline-block;
+      }
+    }
+  }
+  .primary-nav {
+    font-size: 14px;
+    line-height: 35px;
+    a {
+      color: rgb(128, 128, 128);
+    }
+  }
+}

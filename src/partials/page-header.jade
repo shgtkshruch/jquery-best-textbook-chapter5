@@ -1,13 +1,11 @@
-mixin page-header(className)
-  header(class="#{className}")
-    .inner.clearfix
-      h1.site-logo
-        a(href="#")
-          img(src="images/logo.png" alt="Shiftbrain" width="200" height="65")
-      nav.primary-nav
-        ul
-          each nav, i in ['About', 'Work', 'Blog', 'Recruit', 'Contact']
-            li
-              a(href="#")= nav
+header(class="#{className}")
+  .inner.clearfix
+    h1.site-logo
+      a(href="#")
+        img(src="images/logo.png" alt="Shiftbrain" width="200" height="65")
+    nav.primary-nav
+      ul
+        each nav, i in ['About', 'Work', 'Blog', 'Recruit', 'Contact']
+          li
+            a(href="#")= nav
 
-+page-header('page-header')
