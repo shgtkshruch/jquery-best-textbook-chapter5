@@ -1,0 +1,33 @@
+.page-header {
+  position: absolute;
+  width: 100%;
+  min-width: 960px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
+  &.sticky {
+    position: fixed;
+    top: 0;
+  }
+}
+
+.site-logo {
+  float: left;
+  margin-left: -20px;
+}
+
+.primary-nav {
+  float: right;
+  line-height: 65px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  li {
+    float: left;
+  }
+  a {
+    display: block;
+    padding: 0 1.36em;
+    &:hover {
+      background-color: rgb(240, 240, 240);
+    }
+  }
+}
+

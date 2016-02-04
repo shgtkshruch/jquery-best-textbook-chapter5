@@ -4,6 +4,7 @@ html(lang="ja")
     meta(charset='UTF-8')
     title Chapter 05 · jQuery 最高の教科書
     meta(content='IE=edge', http-equiv='X-UA-Compatible')
+    link(rel='stylesheet', href='//fonts.googleapis.com/css?family=Ropa+Sans')
     // build:css styles/vendor.css
     // bower:css
     link(rel='stylesheet', href='../bower_components/normalize-css/normalize.css')
@@ -12,6 +13,10 @@ html(lang="ja")
     link(rel='stylesheet', href='styles/style.css', media='all')
   body
     include partials/slideshow
+
+    include partials/page-header
+
+    main(style="height:2000px")
 
     // build:js scripts/vendor.js
     // bower:js
