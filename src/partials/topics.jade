@@ -1,0 +1,17 @@
+section.topics-section
+  .inner
+    h2 Topics
+    ul.topics-list.clearfix
+      - topics = []
+      - topics[0] = {date: '2013/05/16', datetime: '2013-05-16', text: '私は近頃いやしくもこういう創作家というののためで来でた。じっと先刻を講義方はさぞその説明でしょますなりにいうからかねるたにも会得来たでしょから、あくまでにも云ったますませなかっ。他へあっです事もできるだけ毎日におもにうんた。'}
+      - topics[1] = {date: '2013/05/01', datetime: '2013-05-01', text: '秋刀魚をも幸福たいよいよもっで始めれた十一月を便所にすると、家をもったり、だから先輩が聴いやする世間でする個性、好い加減うて'}
+      - topics[2] = {date: '2013/04/01', datetime: '2013-04-01', text: '何にさからは附随のまぐれ当りは申すば来たようにするられのあり。手は不行届に自覚たところたですはずうない。私のようりのなり'}
+      each topic, i in topics
+        li
+          a(href="#")
+            span.image-wrapper
+              img.image(src="images/topic-#{i+1}.jpg" alt="")
+            b.ttile Hot Topic 0#{i+1}
+            time.date(datetime="#{topic.datetime}")= topic.date
+            p.description= topic.text
+
