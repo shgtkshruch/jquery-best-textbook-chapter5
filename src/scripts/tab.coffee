@@ -1,28 +1,20 @@
-$work = $ '#work'
-$tabList = $work.find '.tabs-nav'
-$tabAnchors = $tabList.find 'a'
-$tabPanels = $work.find '.tabs-panel'
+$container = $ '.work-section'
+$navItems = $container.find '.tabs-nav li'
+$highlight = $container.find '.tabs-highlight'
 
-$tabList.on 'click', 'a', (event) ->
-  event.preventDefault()
+# ハイライト位置を調整する関数
+moveHighlight = (event, ui) ->
+  $newTab = ui.newTab || ui.tab
+  left = $newTab.position().left
+  $highlight.animate
+    left: left
+  , 500, 'easeOutExpo'
 
-  $this = $ @
+$container.tabs
+  hide:
+    duration: 250
+  show:
+    duration: 125
+  create: moveHighlight
+  activate: moveHighlight
 
-  # もしすでに選択されたタブならなにもせずに処理を中止
-  if $this.hasClass 'active' then return
-
-  # すべてのタブの選択状態をいったん解除し、
-  # クリックされたタブを選択状態に
-  $tabAnchors.removeClass 'active'
-  $this.addClass 'active'
-
-  # すべてのパネルをいったん非表示にし、
-  # クリックされたタブに対応するパネルを表示
-  $tabPanels.hide()
-  $ $this.attr 'href'
-    .show()
-
-# 最初のタブを選択状態に
-$tabAnchors
-  .eq 0
-  .trigger 'click'
