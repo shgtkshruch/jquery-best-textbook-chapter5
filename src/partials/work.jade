@@ -1,4 +1,4 @@
-section.work-section#work
+section.work-section
   header.section-header
     .inner.clearfix
       h2 Pick up work
@@ -6,6 +6,7 @@ section.work-section#work
         - for (var i = 0; i < 5; i++)
           li
             a(href="#work0#{i+1}") Work0#{i+1}
+      span.tabs-highlight
   .section-body
     - for (var i = 0; i < 5; i++)
       section.tabs-panel(id="work0#{i+1}")
