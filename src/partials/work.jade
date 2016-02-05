@@ -1,0 +1,19 @@
+section.work-section#work
+  header.section-header
+    .inner.clearfix
+      h2 Pick up work
+      ul.tabs-nav
+        - for (var i = 0; i < 5; i++)
+          li
+            a(href="#work0#{i+1}") Work0#{i+1}
+  .section-body
+    - for (var i = 0; i < 5; i++)
+      section.tabs-panel(id="work0#{i+1}")
+        .image-wrapper
+          img(src="images/work-#{i+1}.jpg" alt="")
+        .content
+          .inner
+            h3.title Work 0#{i+1}
+            p.description まげすぎみんなは兎が青くなくからさっきの係りの箱げをすん第一窓顔のおねがいを考えると行っですた。野ねずみは前来て出します。扉は一いう首のようをついてきまし。
+            a.read-more(href="#") Read more
+
