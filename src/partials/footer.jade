@@ -1,0 +1,14 @@
+footer.page-footer
+  button.back-to-top(type="button")
+    span.label ページの先頭へ戻る
+  .inner.clearfix
+    aside.social-links
+      ul
+        - socials = []
+        - socials[0] = {class: 'facebook', link: 'http://www.facebook.com/SHIFTBRAIN'}
+        - socials[1] = {class: 'twitter', link: 'https://twitter.com/shiftbrain'}
+        each social, i in socials
+          li(class="item-#{social.class}")
+            a(href="#{social.link}" target="_blank")
+              span.label= social.class
+    small.copyright Copyright &copy; Shiftbrain

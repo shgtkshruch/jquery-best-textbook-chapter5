@@ -1,0 +1,76 @@
+.back-to-top {
+  background-color: rgb(240, 240, 240);
+  border-width: 0;
+  cursor: pointer;
+  display: block;
+  margin: 0;
+  padding: 16px;
+  width: 100%;
+  .label {
+    display: block;
+    height: 18px;
+    margin:auto;
+    overflow: hidden;
+    width: 26px;
+    &::before {
+      content: url(../images/sprites.png);
+      display: inline-block;
+      font-size: 0;
+      line-height: 0;
+      margin-left: -40px;
+    }
+  }
+}
+
+.page-footer {
+  > .inner {
+    padding-top: 30px;
+    padding-bottom: 40px;
+  }
+}
+
+.social-links {
+  float: left;
+  li {
+    float: left;
+    margin-left: 5px;
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+  a {
+    border: 1px solid rgb(153, 153, 153);
+    display: block;
+    padding: 6px;
+  }
+  .label {
+    display: block;
+    height: 16px;
+    overflow: hidden;
+    width: 16px;
+    &::before {
+      content: url(../images/sprites.png);
+      display: inline-block;
+      font-size: 0;
+      line-height: 0;
+    }
+  }
+  $social: (
+    facebook: -70,
+    twitter: -90
+  );
+  @each $class, $margin in $social {
+    .item-#{$class} .label::before {
+      margin-left: $margin + px;
+    }
+  }
+}
+
+.copyright {
+  color: rgb(102, 102, 102);
+  font-size: 12px;
+  padding: 6px 0;
+  float: right;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
