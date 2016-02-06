@@ -19,6 +19,7 @@
     "jquery": "1",
     "normalize-css": "normalize.css#^3.0.3",
     "jquery-ui": "1.10",
-    "jquery-throttle-debounce": "*"
+    "jquery-throttle-debounce": "*",
+    "jquery-smooth-scroll": "^1.7.2"
   }
 }
